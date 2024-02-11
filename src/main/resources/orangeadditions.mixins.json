@@ -1,9 +1,10 @@
 {
     "required": true,
     "minVersion": "0.8",
-    "package": "orangepeel.orangeadditions.mixin",
+    "package": "orangepeel.orangeadditions.mixins",
     "compatibilityLevel": "JAVA_8",
     "mixins": [
+      "ChunkDecoratorOverworldMixin"
     ],
     "client": [
     ],

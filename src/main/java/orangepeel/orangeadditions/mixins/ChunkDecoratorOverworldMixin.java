@@ -1,11 +1,14 @@
-package orangepeel.orangeadditions.mixin.mixins;
+package orangepeel.orangeadditions.mixins;
 
 
 import net.minecraft.core.block.BlockSand;
 import net.minecraft.core.world.World;
 import net.minecraft.core.world.biome.Biome;
+import net.minecraft.core.world.biome.Biomes;
 import net.minecraft.core.world.chunk.Chunk;
 import net.minecraft.core.world.generate.chunk.perlin.overworld.ChunkDecoratorOverworld;
+import net.minecraft.core.world.generate.feature.WorldFeatureFlowers;
+import orangepeel.orangeadditions.OrangeAdditions;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -36,5 +39,19 @@ public abstract class ChunkDecoratorOverworldMixin {
 		long l2 = rand.nextLong() / 2L * 2L + 1L;
 		rand.setSeed((long) chunkX * l1 + (long) chunkZ * l2 ^ this.world.getRandomSeed());
 		int blockX, blockY, blockZ;
+
+		if ((biome == Biomes.OVERWORLD_FOREST ||
+				biome == Biomes.OVERWORLD_PLAINS ||
+				biome == Biomes.OVERWORLD_BIRCH_FOREST ||
+				biome == Biomes.OVERWORLD_RAINFOREST ||
+				biome == Biomes.OVERWORLD_SEASONAL_FOREST ||
+				biome == Biomes.OVERWORLD_SWAMPLAND ||
+				biome == Biomes.OVERWORLD_SWAMPLAND_MUDDY) &&
+				rand.nextInt(4) == 0){
+			blockX = x + rand.nextInt(16) + 8;
+			blockZ = z + rand.nextInt(16) + 8;
+			blockY = world.getHeightValue(blockX, blockZ);
+			new WorldFeatureFlowers(OrangeAdditions.whiteMushroom.id).generate(world, rand, blockX, blockY, blockZ);
+		}
 	}
 }

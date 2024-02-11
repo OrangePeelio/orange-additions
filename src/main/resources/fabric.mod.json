@@ -4,7 +4,7 @@
   "version": "${version}",
 
   "name": "Orange Additions",
-  "description": "This mod aims to help new BTA modders.",
+  "description": "Adds in an eclectic variety of content",
   "authors": [
     "Orange_Peel"
   ],
@@ -19,7 +19,10 @@
   "entrypoints": {
     "main": [
         "orangepeel.orangeadditions.OrangeAdditions"
-    ]
+    ],
+		"terrain-api": [
+			"orangepeel.orangeadditions.ModContainer.TerrainAPI.TerrainAPIPlugin"
+		]
   },
   "mixins": [
       "orangeadditions.mixins.json"
