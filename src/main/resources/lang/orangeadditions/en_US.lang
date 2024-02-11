@@ -1,0 +1,19 @@
+item.orangeadditions.brightitepowder.name=Brightite Powder
+item.orangeadditions.brightitepowder.description=Gently glowing powder.
+item.orangeadditions.blightiteshards.name=Blightite Shards
+item.orangeadditions.blightiteshards.descript=Small, sharp crystaline shards.
+item.orangeadditions.prismaritesnow.name=Prismarite Snow
+item.orangeadditions.prismaritesnow.description=Fine, slightly cool powder.
+item.orangeadditions.pixiedust.name=Pixie Dust
+item.orangeadditions.pixiedust.description=Magic dust.
+item.orangeadditions.artificialwing.name=Artificial Wing
+item.orangeadditions.artificialwing.description=A wing laced with magic.
+item.orangeadditions.speedboosters.name=Speed Boosters
+item.orangeadditions.speedboosters.description=A fetish that manipulates energy to speed up the user.
+
+tile.orangeadditions.brightitecrystal.name=Brightite
+tile.orangeadditions.brightitecrystal.description=A shard of gently glowing crystal.
+tile.orangeadditions.blightitecrystal.name=Blightite
+tile.orangeadditions.blightitecrystal.description=A shard of jagged, black crystal.
+tile.orangeadditions.prismariteflake.name=Prismarite Flake
+tile.orangeadditions.prismariteflake.description=A large flake of cool rock.

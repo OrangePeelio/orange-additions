@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "id": "examplemod",
+  "id": "orangeadditions",
   "version": "${version}",
 
-  "name": "Example Mod",
+  "name": "Orange Additions",
   "description": "This mod aims to help new BTA modders.",
   "authors": [
-    "Turnip Labs"
+    "Orange_Peel"
   ],
   "contact": {
     "homepage": "",
@@ -18,11 +18,11 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-        "turniplabs.examplemod.ExampleMod"
+        "orangepeel.orangeadditions.OrangeAdditions"
     ]
   },
   "mixins": [
-      "examplemod.mixins.json"
+      "orangeadditions.mixins.json"
   ],
 
   "depends": {
