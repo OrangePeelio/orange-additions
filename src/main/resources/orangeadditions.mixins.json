@@ -4,7 +4,9 @@
     "package": "orangepeel.orangeadditions.mixins",
     "compatibilityLevel": "JAVA_8",
     "mixins": [
-      "ChunkDecoratorOverworldMixin"
+      "ChunkDecoratorOverworldMixin",
+      "ChunkDecoratorNetherMixin",
+      "client.PlayerInputMixin"
     ],
     "client": [
     ],

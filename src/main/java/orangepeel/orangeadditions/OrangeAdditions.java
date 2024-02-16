@@ -65,7 +65,7 @@ public class OrangeAdditions implements ModInitializer {
 		.setTextures("brightite.png")
 		.setBlockModel(new BlockModelRenderBlocks(1))
 		.setTags(BlockTags.BROKEN_BY_FLUIDS)
-		.build(new BlockCrystal("brightitecrystal", 10000, Material.plant));
+		.build(new BlockCrystal("brightitecrystal", 10000));
 	public static final Block blightiteCrystal = new BlockBuilder(MOD_ID)
 		.setBlockSound(new BlockSound("step.stone", "random.glass", 1.0f, 1.0f))
 		.setHardness (0.0f)
@@ -73,7 +73,7 @@ public class OrangeAdditions implements ModInitializer {
 		.setTextures("blightite.png")
 		.setBlockModel(new BlockModelRenderBlocks(1))
 		.setTags(BlockTags.BROKEN_BY_FLUIDS)
-		.build(new BlockCrystal("blightitecrystal", 10001, Material.plant));
+		.build(new BlockCrystal("blightitecrystal", 10001));
 	public static final Block prismariteFlake = new BlockBuilder(MOD_ID)
 		.setBlockSound(new BlockSound("step.stone", "random.glass", 1.0f, 1.0f))
 		.setHardness (0.0f)
@@ -82,7 +82,7 @@ public class OrangeAdditions implements ModInitializer {
 		.setTextures("prismarite.png")
 		.setBlockModel(new BlockModelRenderBlocks(1))
 		.setTags(BlockTags.BROKEN_BY_FLUIDS)
-		.build(new BlockCrystal("prismariteflake", 10002, Material.plant));
+		.build(new BlockCrystal("prismariteflake", 10002));
 	public static final Block whiteMushroom = new BlockBuilder(MOD_ID)
 		.setBlockSound(new BlockSound("step.grass", "step.grass", 1.0f, 1.0f))
 		.setHardness(0.0f)
@@ -91,6 +91,13 @@ public class OrangeAdditions implements ModInitializer {
 		.setBlockModel(new BlockModelRenderBlocks(1))
 		.setTags(BlockTags.SHEARS_DO_SILK_TOUCH, BlockTags.BROKEN_BY_FLUIDS)
 		.build(new BlockMushroom("whitemushroom", 10003));
+	public static final Block crimtane = new BlockBuilder(MOD_ID)
+		.setBlockSound(new BlockSound("step.stone", "step.stone", 1, .6f))
+		.setHardness(8f)
+		.setResistance(110000f)
+		.setTextures("crimtane.png")
+		.setTags(BlockTags.MINEABLE_BY_PICKAXE)
+		.build(new Block("crimtane", 10004, Material.stone));
 
 	//recipies
 	final static String[] recipeSpeedBoosters = {

@@ -1,8 +1,10 @@
 package orangepeel.orangeadditions;
 
 import net.minecraft.core.block.Block;
+import net.minecraft.core.block.BlockFlower;
 import net.minecraft.core.block.entity.TileEntity;
 import net.minecraft.core.block.material.Material;
+import net.minecraft.core.block.material.MaterialColor;
 import net.minecraft.core.entity.EntityLiving;
 import net.minecraft.core.enums.EnumDropCause;
 import net.minecraft.core.util.helper.Side;
@@ -12,8 +14,30 @@ import net.minecraft.core.world.World;
 public class BlockCrystal extends Block {
 
 
-	public BlockCrystal(String key, int id, Material material) {
-		super(key, id, material);
+	protected boolean canThisPlantGrowOnThisBlockID(int i) {
+		return Block.solid[i];
+	}
+	public boolean canBlockStay(World world, int x, int y, int z) {
+		if (this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y - 1, z))){
+			return true;
+		}
+		if (this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y + 1, z))){
+			return true;
+		}
+		if (this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y, z - 1))){
+			return true;
+		}
+		if (this.canThisPlantGrowOnThisBlockID(world.getBlockId(x, y, z +1))){
+			return true;
+		}
+		if (this.canThisPlantGrowOnThisBlockID(world.getBlockId(x - 1, y, z))){
+			return true;
+		}
+		return this.canThisPlantGrowOnThisBlockID(world.getBlockId(x + 1, y, z));
+	}
+
+	public BlockCrystal(String key, int id) {
+		super(key, id, new Material(MaterialColor.stone));
 		float f = 0.2F;
 		this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 3.0F, 0.5F + f);
 	}
@@ -38,8 +62,11 @@ public class BlockCrystal extends Block {
 		} else if (world.isBlockNormalCube(x, y + 1, z )) {
 			return true;
 		}
+		else if (world.isBlockNormalCube(x, y, z + 1)){
+			return true;
+		}
 		else {
-			return world.isBlockNormalCube(x, y, z + 1) ? true : world.canPlaceOnSurfaceOfBlock(x, y - 1, z);
+			 return world.isBlockNormalCube(x, y - 1, z)|| world.canPlaceOnSurfaceOfBlock(x, y - 1, z);
 		}
 	}
 	public void onBlockPlaced(World world, int x, int y, int z, Side side, EntityLiving entity, double sideHeight) {
@@ -117,13 +144,14 @@ public class BlockCrystal extends Block {
 		} else if (world.isBlockNormalCube(i, j + 1, k)) {
 			world.setBlockMetadataWithNotify(i, j, k, 6);
 		}
-
+		System.out.print("droponBlockAdded");
 		this.dropCrystalIfCantStay(world, i, j, k);
 	}
 	private boolean dropCrystalIfCantStay(World world, int i, int j, int k) {
 		if (!this.canPlaceBlockAt(world, i, j, k)) {
 			this.dropBlockWithCause(world, EnumDropCause.WORLD, i, j, k, world.getBlockMetadata(i, j, k), (TileEntity)null);
 			world.setBlockWithNotify(i, j, k, 0);
+			System.out.println("dropppppp");
 			return false;
 		} else {
 			return true;

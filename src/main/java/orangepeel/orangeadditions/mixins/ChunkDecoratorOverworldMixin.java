@@ -9,6 +9,7 @@ import net.minecraft.core.world.chunk.Chunk;
 import net.minecraft.core.world.generate.chunk.perlin.overworld.ChunkDecoratorOverworld;
 import net.minecraft.core.world.generate.feature.WorldFeatureFlowers;
 import orangepeel.orangeadditions.OrangeAdditions;
+import orangepeel.orangeadditions.world.worldgen.WorldFeatureCrystal;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -52,6 +53,14 @@ public abstract class ChunkDecoratorOverworldMixin {
 			blockZ = z + rand.nextInt(16) + 8;
 			blockY = world.getHeightValue(blockX, blockZ);
 			new WorldFeatureFlowers(OrangeAdditions.whiteMushroom.id).generate(world, rand, blockX, blockY, blockZ);
+
+
+		}
+		if (rand.nextInt(4) == 0) {
+			blockX = x + rand.nextInt(16) + 8;
+			blockZ = z + rand.nextInt(16) + 8;
+			blockY = minY + rand.nextInt(rangeY);
+			new WorldFeatureCrystal(OrangeAdditions.brightiteCrystal.id).generate(world, rand, blockX, blockY, blockZ);
 		}
 	}
 }
